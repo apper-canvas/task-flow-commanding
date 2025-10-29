@@ -9,15 +9,16 @@ const Empty = ({
   actionText = "Create Task"
 }) => {
 return (
-    <motion.div
+<motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col items-center justify-center min-h-[300px] text-center p-8"
+      transition={{ duration: 0.4 }}
+      className="flex flex-col items-center justify-center min-h-[300px] text-center p-12"
     >
       <div className="relative mb-8">
-        <div className="w-24 h-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-full flex items-center justify-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-full flex items-center justify-center">
-            <ApperIcon name="CheckSquare" className="w-8 h-8 text-primary" />
+<div className="w-28 h-28 bg-gradient-to-br from-primary/3 via-secondary/3 to-accent/3 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-primary/8 via-secondary/8 to-accent/8 rounded-full flex items-center justify-center">
+            <ApperIcon name="CheckSquare" className="w-10 h-10 text-primary/70" />
           </div>
         </div>
         
@@ -50,11 +51,11 @@ return (
         />
       </div>
       
-<h3 className="text-2xl font-display font-bold gradient-text mb-3">
+<h3 className="text-3xl font-display font-bold gradient-text mb-4">
         {title}
       </h3>
       
-      <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
+<p className="text-gray-500 mb-8 max-w-md leading-relaxed text-lg">
         {description}
       </p>
       {action && (

@@ -105,8 +105,8 @@ const TasksDashboard = () => {
   }
 
 return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-4 py-2">
+<div className="min-h-screen bg-background">
+      <div className="max-w-4xl mx-auto px-6 py-8">
 {/* Header */}
         <TaskHeader 
           totalTasks={totalTasks}
@@ -114,10 +114,10 @@ return (
           onAddTask={handleCreateTask}
         />
 {/* Priority Filters */}
-        <motion.div
+<motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.15, duration: 0.4 }}
           className="mb-2"
         >
           <PriorityFilter
@@ -131,7 +131,7 @@ return (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
         >
           <TaskList
             tasks={filteredTasks}

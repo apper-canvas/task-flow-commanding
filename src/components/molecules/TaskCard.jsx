@@ -1,10 +1,10 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
-import { format, isToday, isTomorrow, isPast } from 'date-fns'
-import ApperIcon from '@/components/ApperIcon'
-import Checkbox from '@/components/atoms/Checkbox'
-import Button from '@/components/atoms/Button'
-import { cn } from '@/utils/cn'
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useState } from "react";
+import { format, isPast, isToday, isTomorrow } from "date-fns";
+import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
+import Checkbox from "@/components/atoms/Checkbox";
+import { cn } from "@/utils/cn";
 
 const TaskCard = ({ 
   task, 
@@ -95,16 +95,16 @@ const TaskCard = ({
       exit={{ opacity: 0, y: -10 }}
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
-      className={cn(
-        "bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-200 border border-gray-100 overflow-hidden",
-        task.completed && "opacity-75"
+className={cn(
+        "bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-50 overflow-hidden",
+        task.completed && "opacity-70"
       )}
     >
 {/* Priority indicator bar */}
       <div className={cn("h-1 w-full", getPriorityColor(task.priority))} />
       
-      <div className="p-2">
-        <div className="flex items-start gap-1.5">
+<div className="p-4">
+        <div className="flex items-start gap-3">
           <div className="flex-shrink-0 pt-1">
             <Checkbox
               checked={task.completed}
@@ -114,11 +114,11 @@ const TaskCard = ({
           </div>
           
 <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-1.5 mb-0.5">
-              <div className="relative">
+            <div className="flex items-center gap-2 mb-1.5">
+              <button onClick={() => onEdit(task)}>
                 <h3 className={cn(
-                  "text-base font-display font-semibold text-gray-900 leading-tight",
-                  task.completed && "line-through text-gray-500"
+                  "text-lg font-display font-semibold text-gray-800 leading-tight",
+                  task.completed && "line-through text-gray-400"
                 )}>
                   {task.title}
                 </h3>
@@ -132,12 +132,12 @@ const TaskCard = ({
                     />
                   )}
                 </AnimatePresence>
-              </div>
-<div className="flex items-center gap-1.5 flex-shrink-0">
+              </button>
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <span className={cn(
-                  "text-xs font-medium px-1 py-0.5 rounded-full",
+                  "text-xs font-medium px-2 py-1 rounded-full",
                   getPriorityTextColor(task.priority),
-                  "bg-gray-50"
+                  "bg-gray-50/80"
                 )}>
                   {getPriorityLabel(task.priority)}
                 </span>
@@ -145,24 +145,23 @@ const TaskCard = ({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-5 w-5 p-0"
+                  className="h-7 w-7 p-0"
                   onClick={() => onDelete(task.Id)}
-                  className="text-gray-400 hover:text-error p-0.5 min-h-auto"
+                  className="text-gray-300 hover:text-error p-1 min-h-auto transition-colors duration-200"
                 >
-                  <ApperIcon name="Trash2" size={13} />
+                  <ApperIcon name="Trash2" size={14} />
                 </Button>
               </div>
             </div>
-            
 {task.description && (
               <p className={cn(
-                "text-xs text-gray-600 mb-1 leading-snug",
-                task.completed && "line-through opacity-75"
+                "text-sm text-gray-500 mb-2 leading-relaxed",
+                task.completed && "line-through opacity-60"
               )}>
                 {task.description}
               </p>
             )}
-<div className="flex items-center gap-1.5 flex-wrap">
+<div className="flex items-center gap-2 flex-wrap">
               {category && (
                 <span 
                   className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium text-white"
@@ -173,13 +172,13 @@ const TaskCard = ({
               )}
               
 {task.dueDate && (
-                <div className={cn(
-                  "inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs font-medium",
-                  isOverdue(task.dueDate) ? "bg-error/10 text-error" :
-                  isDueSoon(task.dueDate) ? "bg-warning/10 text-warning" :
-                  "bg-gray-100 text-gray-600"
+<div className={cn(
+                  "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium",
+                  isOverdue(task.dueDate) ? "bg-error/5 text-error" :
+                  isDueSoon(task.dueDate) ? "bg-warning/5 text-warning" :
+                  "bg-gray-50 text-gray-500"
                 )}>
-                  <ApperIcon name="Calendar" size={12} />
+                  <ApperIcon name="Calendar" size={13} />
                   {formatDueDate(task.dueDate)}
                 </div>
               )}
@@ -190,7 +189,7 @@ const TaskCard = ({
 
       {/* Confetti animation */}
       <AnimatePresence>
-        {showConfetti && (
+{showConfetti && (
           <div className="absolute inset-0 pointer-events-none">
             {[...Array(5)].map((_, i) => (
               <motion.div
@@ -200,17 +199,19 @@ const TaskCard = ({
                   x: '50%', 
                   y: '20%', 
                   scale: 0,
-                  rotate: 0
+                  rotate: 0,
+                  opacity: 0
                 }}
                 animate={{ 
                   x: `${50 + (Math.random() - 0.5) * 80}%`,
                   y: `${20 + Math.random() * 60}%`,
                   scale: [0, 1, 0],
-                  rotate: Math.random() * 360
+                  rotate: Math.random() * 360,
+                  opacity: [0, 0.8, 0]
                 }}
                 transition={{ 
-                  duration: 0.8,
-                  delay: i * 0.05,
+                  duration: 1,
+                  delay: i * 0.06,
                   ease: "easeOut"
                 }}
               />
