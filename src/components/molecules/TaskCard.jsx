@@ -96,12 +96,12 @@ const TaskCard = ({
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
 className={cn(
-        "bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-50 overflow-hidden",
+        "bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-200 overflow-hidden",
         task.completed && "opacity-70"
       )}
     >
 {/* Priority indicator bar */}
-      <div className={cn("h-1 w-full", getPriorityColor(task.priority))} />
+<div className="h-px w-full bg-gray-100" />
       
 <div className="p-4">
         <div className="flex items-start gap-3">
@@ -116,8 +116,8 @@ className={cn(
 <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1.5">
               <button onClick={() => onEdit(task)}>
-                <h3 className={cn(
-                  "text-lg font-display font-semibold text-gray-800 leading-tight",
+<h3 className={cn(
+                  "text-lg font-display font-semibold text-gray-900 leading-tight",
                   task.completed && "line-through text-gray-400"
                 )}>
                   {task.title}
@@ -134,28 +134,27 @@ className={cn(
                 </AnimatePresence>
               </button>
               <div className="flex items-center gap-2 flex-shrink-0">
-                <span className={cn(
+<span className={cn(
                   "text-xs font-medium px-2 py-1 rounded-full",
-                  getPriorityTextColor(task.priority),
-                  "bg-gray-50/80"
+                  "text-blue-600 bg-blue-50"
                 )}>
                   {getPriorityLabel(task.priority)}
                 </span>
                 
-                <Button
+<Button
                   variant="ghost"
                   size="sm"
                   className="h-7 w-7 p-0"
                   onClick={() => onDelete(task.Id)}
-                  className="text-gray-300 hover:text-error p-1 min-h-auto transition-colors duration-200"
+                  className="text-gray-400 hover:text-red-500 p-1 min-h-auto transition-colors duration-200"
                 >
                   <ApperIcon name="Trash2" size={14} />
                 </Button>
               </div>
             </div>
 {task.description && (
-              <p className={cn(
-                "text-sm text-gray-500 mb-2 leading-relaxed",
+<p className={cn(
+                "text-sm text-gray-600 mb-2 leading-relaxed",
                 task.completed && "line-through opacity-60"
               )}>
                 {task.description}
@@ -174,9 +173,9 @@ className={cn(
 {task.dueDate && (
 <div className={cn(
                   "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium",
-                  isOverdue(task.dueDate) ? "bg-error/5 text-error" :
-                  isDueSoon(task.dueDate) ? "bg-warning/5 text-warning" :
-                  "bg-gray-50 text-gray-500"
+                  isOverdue(task.dueDate) ? "bg-red-50 text-red-600" :
+                  isDueSoon(task.dueDate) ? "bg-yellow-50 text-yellow-600" :
+                  "bg-gray-50 text-gray-600"
                 )}>
                   <ApperIcon name="Calendar" size={13} />
                   {formatDueDate(task.dueDate)}
@@ -190,11 +189,11 @@ className={cn(
       {/* Confetti animation */}
       <AnimatePresence>
 {showConfetti && (
-          <div className="absolute inset-0 pointer-events-none">
+<div className="absolute inset-0 pointer-events-none">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                className="confetti-particle"
+                className="absolute w-2 h-2 bg-blue-300 rounded-full"
                 initial={{ 
                   x: '50%', 
                   y: '20%', 
@@ -207,7 +206,7 @@ className={cn(
                   y: `${20 + Math.random() * 60}%`,
                   scale: [0, 1, 0],
                   rotate: Math.random() * 360,
-                  opacity: [0, 0.8, 0]
+                  opacity: [0, 0.6, 0]
                 }}
                 transition={{ 
                   duration: 1,

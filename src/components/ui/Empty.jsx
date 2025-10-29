@@ -15,10 +15,10 @@ return (
       transition={{ duration: 0.4 }}
       className="flex flex-col items-center justify-center min-h-[300px] text-center p-12"
     >
-      <div className="relative mb-8">
-<div className="w-28 h-28 bg-gradient-to-br from-primary/3 via-secondary/3 to-accent/3 rounded-full flex items-center justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-primary/8 via-secondary/8 to-accent/8 rounded-full flex items-center justify-center">
-            <ApperIcon name="CheckSquare" className="w-10 h-10 text-primary/70" />
+<div className="relative mb-8">
+<div className="w-28 h-28 bg-blue-50 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+            <ApperIcon name="CheckSquare" className="w-10 h-10 text-blue-500" />
           </div>
         </div>
         
@@ -33,7 +33,7 @@ return (
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-accent to-secondary rounded-full opacity-20"
+className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"
         />
         
         <motion.div
@@ -47,21 +47,21 @@ return (
             ease: "linear",
             delay: 2
           }}
-          className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-br from-primary to-info rounded-full opacity-30"
+          className="absolute -bottom-2 -left-2 w-4 h-4 bg-blue-300 rounded-full opacity-40"
         />
       </div>
       
-<h3 className="text-3xl font-display font-bold gradient-text mb-4">
+<h3 className="text-3xl font-display font-bold text-gray-900 mb-4">
         {title}
       </h3>
       
-<p className="text-gray-500 mb-8 max-w-md leading-relaxed text-lg">
+<p className="text-gray-600 mb-8 max-w-md leading-relaxed text-lg">
         {description}
       </p>
       {action && (
-        <Button 
+<Button 
           onClick={action} 
-          className="flex items-center gap-2 px-6 py-3 text-base font-medium"
+          className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-blue-500 hover:bg-blue-600"
         >
           <ApperIcon name="Plus" size={18} />
           {actionText}

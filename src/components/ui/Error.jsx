@@ -10,19 +10,19 @@ return (
       transition={{ duration: 0.3 }}
       className="flex flex-col items-center justify-center min-h-[300px] text-center p-12"
     >
-      <div className="w-20 h-20 bg-gradient-to-br from-error/10 to-error/20 rounded-full flex items-center justify-center mb-6">
-        <ApperIcon name="AlertCircle" className="w-10 h-10 text-error" />
+<div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mb-6">
+        <ApperIcon name="AlertCircle" className="w-10 h-10 text-red-500" />
       </div>
       
-<h3 className="text-2xl font-display font-semibold text-gray-800 mb-3">
+<h3 className="text-2xl font-display font-semibold text-gray-900 mb-3">
         Oops! Something went wrong
 </h3>
       
-<p className="text-gray-500 mb-6 max-w-md text-base">
+<p className="text-gray-600 mb-6 max-w-md text-base">
         {error}. Don't worry, we'll get this sorted out.
       </p>
-      {onRetry && (
-        <Button onClick={onRetry} className="flex items-center gap-2">
+{onRetry && (
+        <Button onClick={onRetry} className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600">
           <ApperIcon name="RefreshCw" size={16} />
           Try Again
         </Button>

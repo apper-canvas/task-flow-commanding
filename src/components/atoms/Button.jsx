@@ -9,11 +9,11 @@ const Button = forwardRef(({
   ...props 
 }, ref) => {
   const variants = {
-primary: "bg-gradient-to-r from-primary/90 to-secondary/90 hover:from-primary hover:to-secondary text-white shadow-md hover:shadow-lg",
-    secondary: "bg-white border border-gray-100 hover:border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm",
-    outline: "border-2 border-primary/70 text-primary hover:bg-primary/5 hover:border-primary",
-    ghost: "text-gray-500 hover:text-gray-700 hover:bg-gray-50",
-    danger: "bg-gradient-to-r from-error/90 to-red-500/90 hover:from-error hover:to-red-600 text-white shadow-md hover:shadow-lg"
+primary: "bg-blue-500 hover:bg-blue-600 text-white shadow-card hover:shadow-card-hover",
+    secondary: "bg-white border border-gray-200 hover:border-gray-300 text-gray-700 hover:bg-gray-50 shadow-card",
+    outline: "border border-blue-500 text-blue-600 hover:bg-blue-50",
+    ghost: "text-gray-600 hover:text-gray-900 hover:bg-gray-100",
+    danger: "bg-red-500 hover:bg-red-600 text-white shadow-card hover:shadow-card-hover"
   }
   
   const sizes = {
@@ -25,7 +25,7 @@ sm: "px-4 py-2 text-sm min-h-[36px]",
   return (
     <button
 className={cn(
-        "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2",
+        "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-offset-2",
         variants[variant],
         sizes[size],
         className
