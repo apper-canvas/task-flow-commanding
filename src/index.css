@@ -1,0 +1,121 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'react-toastify/dist/ReactToastify.css';
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.Toastify__toast {
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.Toastify__close-button {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.Toastify__close-button:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.strike-through-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  background: #6B7280;
+  animation: strike-through 0.4s ease-out forwards;
+}
+
+.confetti-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #EC4899;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: confetti 0.8s ease-out forwards;
+}
+
+.confetti-particle:nth-child(2) {
+  background: #6366F1;
+  animation-delay: 0.1s;
+}
+
+.confetti-particle:nth-child(3) {
+  background: #8B5CF6;
+  animation-delay: 0.2s;
+}
+
+.confetti-particle:nth-child(4) {
+  background: #10B981;
+  animation-delay: 0.05s;
+}
+
+.confetti-particle:nth-child(5) {
+  background: #F59E0B;
+  animation-delay: 0.15s;
+}
+
+.priority-indicator-high {
+  background: linear-gradient(180deg, #EF4444 0%, #DC2626 100%);
+}
+
+.priority-indicator-medium {
+  background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+}
+
+.priority-indicator-low {
+  background: linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%);
+}
+
+.task-card-hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.checkbox-scale {
+  transform: scale(1.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #F9FAFB;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
