@@ -6,7 +6,6 @@ import { useCategories } from '@/hooks/useCategories'
 import TaskHeader from '@/components/organisms/TaskHeader'
 import TaskList from '@/components/organisms/TaskList'
 import PriorityFilter from '@/components/molecules/PriorityFilter'
-import FloatingActionButton from '@/components/molecules/FloatingActionButton'
 import Modal from '@/components/molecules/Modal'
 import TaskForm from '@/components/molecules/TaskForm'
 import Loading from '@/components/ui/Loading'
@@ -108,10 +107,11 @@ const TasksDashboard = () => {
 return (
     <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-4 py-2">
-        {/* Header */}
+{/* Header */}
         <TaskHeader 
           totalTasks={totalTasks}
           completedTasks={completedTasks}
+          onAddTask={handleCreateTask}
         />
 {/* Priority Filters */}
         <motion.div
@@ -143,8 +143,6 @@ return (
           />
         </motion.div>
 
-        {/* Floating Action Button */}
-        <FloatingActionButton onClick={handleCreateTask} />
 
         {/* Task Form Modal */}
         <Modal
