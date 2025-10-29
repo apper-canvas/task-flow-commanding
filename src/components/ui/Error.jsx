@@ -11,7 +11,7 @@ return (
       className="flex flex-col items-center justify-center min-h-[300px] text-center p-12"
     >
 <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mb-6">
-        <ApperIcon name="AlertCircle" className="w-10 h-10 text-red-500" />
+        <ApperIcon name="AlertCircle" className="w-10 h-10 text-red-600" />
       </div>
       
 <h3 className="text-2xl font-display font-semibold text-gray-900 mb-3">
@@ -22,7 +22,7 @@ return (
         {error}. Don't worry, we'll get this sorted out.
       </p>
 {onRetry && (
-        <Button onClick={onRetry} className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600">
+<Button onClick={onRetry} className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700">
           <ApperIcon name="RefreshCw" size={16} />
           Try Again
         </Button>

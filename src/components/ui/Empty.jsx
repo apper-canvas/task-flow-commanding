@@ -16,9 +16,9 @@ return (
       className="flex flex-col items-center justify-center min-h-[300px] text-center p-12"
     >
 <div className="relative mb-8">
-<div className="w-28 h-28 bg-blue-50 rounded-full flex items-center justify-center">
-          <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-            <ApperIcon name="CheckSquare" className="w-10 h-10 text-blue-500" />
+        <div className="w-28 h-28 bg-purple-50 rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center">
+            <ApperIcon name="CheckSquare" className="w-10 h-10 text-purple-600" />
           </div>
         </div>
         
@@ -32,8 +32,8 @@ return (
             duration: 8,
             repeat: Infinity,
             ease: "linear"
-          }}
-className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"
+}}
+          className="absolute -top-2 -right-2 w-6 h-6 bg-purple-200 rounded-full opacity-30"
         />
         
         <motion.div
@@ -46,8 +46,8 @@ className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"
             repeat: Infinity,
             ease: "linear",
             delay: 2
-          }}
-          className="absolute -bottom-2 -left-2 w-4 h-4 bg-blue-300 rounded-full opacity-40"
+}}
+          className="absolute -bottom-2 -left-2 w-4 h-4 bg-purple-300 rounded-full opacity-40"
         />
       </div>
       
@@ -60,10 +60,10 @@ className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-30"
       </p>
       {action && (
 <Button 
-          onClick={action} 
-          className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-blue-500 hover:bg-blue-600"
-        >
-          <ApperIcon name="Plus" size={18} />
+        onClick={action} 
+        className="flex items-center gap-2 px-6 py-3 text-base font-medium bg-purple-600 hover:bg-purple-700"
+      >
+        <ApperIcon name="Plus" size={18} />
           {actionText}
         </Button>
       )}

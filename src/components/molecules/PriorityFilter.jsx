@@ -7,10 +7,10 @@ const PriorityFilter = ({
   taskCounts = {}
 }) => {
   const priorities = [
-{ value: 'all', label: 'All', color: 'bg-gray-100 text-gray-700' },
+{ value: 'all', label: 'All', color: 'bg-gray-50 text-gray-700' },
     { value: 'high', label: 'High', color: 'bg-red-50 text-red-600' },
-    { value: 'medium', label: 'Medium', color: 'bg-yellow-50 text-yellow-600' },
-    { value: 'low', label: 'Low', color: 'bg-blue-50 text-blue-600' }
+    { value: 'medium', label: 'Medium', color: 'bg-yellow-50 text-yellow-700' },
+    { value: 'low', label: 'Low', color: 'bg-purple-50 text-purple-600' }
   ]
 return (
     <div className="flex gap-1 flex-wrap">
@@ -24,10 +24,10 @@ return (
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
 onClick={() => onPriorityChange(priority.value)}
-            className={cn(
-"px-2.5 py-1 rounded-full text-sm font-medium transition-all duration-200 min-h-[28px] flex items-center gap-1.5",
+className={cn(
+              "px-2.5 py-1 rounded-full text-sm font-medium transition-all duration-200 min-h-[28px] flex items-center gap-1.5",
               isActive
-                ? "bg-blue-500 text-white shadow-card"
+                ? "bg-purple-600 text-white shadow-card"
                 : priority.color
             )}
           >

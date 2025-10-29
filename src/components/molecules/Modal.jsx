@@ -52,8 +52,8 @@ const Modal = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-className="fixed inset-0 bg-gray-900/10 backdrop-blur-sm"
-          />
+className="fixed inset-0 bg-gray-900/20 backdrop-blur-sm"
+        />
 
           {/* Modal */}
           <div className="flex min-h-full items-center justify-center p-4">
@@ -62,8 +62,8 @@ className="fixed inset-0 bg-gray-900/10 backdrop-blur-sm"
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-              className={cn(
-"relative w-full bg-white rounded-lg shadow-xl border border-gray-200",
+className={cn(
+                "relative w-full bg-white rounded-lg shadow-xl border border-gray-100",
                 sizes[size],
                 className
               )}
@@ -74,8 +74,8 @@ className="fixed inset-0 bg-gray-900/10 backdrop-blur-sm"
                   {title}
                 </h2>
 <button
-onClick={onClose}
-                  className="p-2 text-gray-400 hover:text-gray-700 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+                  onClick={onClose}
+                  className="p-2 text-gray-400 hover:text-gray-700 hover:bg-purple-50 rounded-lg transition-colors duration-200"
                 >
                   <ApperIcon name="X" size={22} />
                 </button>

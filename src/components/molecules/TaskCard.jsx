@@ -96,12 +96,12 @@ const TaskCard = ({
       whileHover={{ y: -2 }}
       transition={{ duration: 0.2 }}
 className={cn(
-        "bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-200 overflow-hidden",
+        "bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-100 overflow-hidden",
         task.completed && "opacity-70"
       )}
     >
-{/* Priority indicator bar */}
-<div className="h-px w-full bg-gray-100" />
+      {/* Priority Indicator Bar */}
+      <div className="h-px w-full bg-gray-50" />
       
 <div className="p-4">
         <div className="flex items-start gap-3">
@@ -136,7 +136,7 @@ className={cn(
               <div className="flex items-center gap-2 flex-shrink-0">
 <span className={cn(
                   "text-xs font-medium px-2 py-1 rounded-full",
-                  "text-blue-600 bg-blue-50"
+                  "text-purple-600 bg-purple-50"
                 )}>
                   {getPriorityLabel(task.priority)}
                 </span>
@@ -146,7 +146,7 @@ className={cn(
                   size="sm"
                   className="h-7 w-7 p-0"
                   onClick={() => onDelete(task.Id)}
-                  className="text-gray-400 hover:text-red-500 p-1 min-h-auto transition-colors duration-200"
+                  className="text-gray-400 hover:text-red-600 p-1 min-h-auto transition-colors duration-200"
                 >
                   <ApperIcon name="Trash2" size={14} />
                 </Button>
@@ -193,7 +193,7 @@ className={cn(
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-2 h-2 bg-blue-300 rounded-full"
+                className="absolute w-2 h-2 bg-purple-300 rounded-full"
                 initial={{ 
                   x: '50%', 
                   y: '20%', 

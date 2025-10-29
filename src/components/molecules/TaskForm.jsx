@@ -79,7 +79,7 @@ const handleGenerateDescription = async () => {
 <form onSubmit={handleSubmit} className="space-y-5">
       {/* Title */}
 <div>
-        <label className="block text-sm font-medium text-gray-600 mb-2">
+<label className="block text-sm font-medium text-gray-700 mb-2">
           Task Title
         </label>
         <Input
@@ -94,14 +94,14 @@ const handleGenerateDescription = async () => {
       {/* Description */}
 <div>
 <div className="flex items-center justify-between mb-2">
-          <label className="block text-sm font-medium text-gray-600">
+          <label className="block text-sm font-medium text-gray-700">
             Description
           </label>
           <button
-            type="button"
+type="button"
             onClick={handleGenerateDescription}
             disabled={generatingDesc || !formData.title.trim()}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-primary bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-purple-600 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {generatingDesc ? (
               <>
@@ -130,7 +130,7 @@ const handleGenerateDescription = async () => {
       {/* Priority and Category Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
-          <label className="block text-sm font-medium text-gray-600 mb-2">
+<label className="block text-sm font-medium text-gray-700 mb-2">
             Priority
           </label>
           <Select
@@ -144,8 +144,8 @@ const handleGenerateDescription = async () => {
         </div>
 
         <div>
-<label className="block text-sm font-medium text-gray-600 mb-2">
-            Category
+<label className="block text-sm font-medium text-gray-700 mb-2">
+          Category
           </label>
           <Select
             value={formData.category}
@@ -162,7 +162,7 @@ const handleGenerateDescription = async () => {
 
       {/* Due Date */}
 <div>
-        <label className="block text-sm font-medium text-gray-600 mb-2">
+<label className="block text-sm font-medium text-gray-700 mb-2">
           Due Date
         </label>
 <div className="space-y-4">
@@ -174,43 +174,43 @@ const handleGenerateDescription = async () => {
           
           {/* Quick date buttons */}
 <div className="flex gap-2 flex-wrap">
-            <Button
+<Button
               type="button"
               variant="ghost"
               size="sm"
               onClick={() => setQuickDate(0)}
-              className="flex items-center gap-1.5"
+              className="flex items-center gap-1.5 hover:bg-purple-50 hover:text-purple-600"
             >
               <ApperIcon name="Sun" size={15} />
               Today
             </Button>
-            <Button
+<Button
               type="button"
               variant="ghost"
               size="sm"
               onClick={() => setQuickDate(1)}
-              className="flex items-center gap-1.5"
+              className="flex items-center gap-1.5 hover:bg-purple-50 hover:text-purple-600"
             >
               <ApperIcon name="Sunrise" size={15} />
               Tomorrow
             </Button>
-            <Button
+<Button
               type="button"
               variant="ghost"
               size="sm"
               onClick={() => setQuickDate(7)}
-              className="flex items-center gap-1.5"
+              className="flex items-center gap-1.5 hover:bg-purple-50 hover:text-purple-600"
             >
               <ApperIcon name="Calendar" size={15} />
               Next Week
             </Button>
             {formData.dueDate && (
-              <Button
+<Button
                 type="button"
                 variant="ghost"
                 size="sm"
                 onClick={() => setFormData(prev => ({ ...prev, dueDate: '' }))}
-                className="flex items-center gap-1.5 text-gray-400"
+                className="flex items-center gap-1.5 text-gray-400 hover:text-gray-600"
               >
                 <ApperIcon name="X" size={15} />
                 Clear
@@ -222,14 +222,14 @@ const handleGenerateDescription = async () => {
 
       {/* Action buttons */}
 <div className="flex gap-3 pt-6">
-        <Button
-          type="submit"
-          className="flex-1 flex items-center justify-center gap-2"
-          disabled={!formData.title.trim()}
-        >
-          <ApperIcon name={task ? "Save" : "Plus"} size={17} />
-          {task ? "Update Task" : "Create Task"}
-        </Button>
+          <Button
+            type="submit"
+            className="flex-1 flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700"
+            disabled={!formData.title.trim()}
+          >
+            <ApperIcon name={task ? "Save" : "Plus"} size={17} />
+            {task ? "Update Task" : "Create Task"}
+          </Button>
         <Button
           type="button"
           variant="secondary"

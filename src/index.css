@@ -18,15 +18,15 @@
 }
 
 .Toastify__toast--success {
-  background: #34D399;
+  background: #10B981;
 }
 
 .Toastify__toast--error {
-  background: #F87171;
+  background: #EF4444;
 }
 
 .Toastify__toast--info {
-  background: #60A5FA;
+  background: #635BFF;
 }
 
 .Toastify__progress-bar {
@@ -46,7 +46,7 @@
   top: 50%;
   left: 0;
   height: 2px;
-  background: #6B7280;
+  background: #9CA3AF;
   animation: strike-through 0.4s ease-out forwards;
 }
 
@@ -54,42 +54,42 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  background: #93C5FD;
+  background: #A5B4FC;
   border-radius: 50%;
   pointer-events: none;
   animation: confetti 0.8s ease-out forwards;
 }
 
 .confetti-particle:nth-child(2) {
-  background: #DBEAFE;
+  background: #E0DFFE;
   animation-delay: 0.1s;
 }
 
 .confetti-particle:nth-child(3) {
-  background: #60A5FA;
+  background: #7A73FF;
   animation-delay: 0.2s;
 }
 
 .confetti-particle:nth-child(4) {
-  background: #93C5FD;
+  background: #A5B4FC;
   animation-delay: 0.05s;
 }
 
 .confetti-particle:nth-child(5) {
-  background: #DBEAFE;
+  background: #E0DFFE;
   animation-delay: 0.15s;
 }
 
 .priority-indicator-high {
-  background: #F87171;
+  background: #EF4444;
 }
 
 .priority-indicator-medium {
-  background: #FCD34D;
+  background: #F59E0B;
 }
 
 .priority-indicator-low {
-  background: #93C5FD;
+  background: #A5B4FC;
 }
 
 .task-card-hover {
@@ -105,7 +105,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #FFFFFF;
+  background-color: #F7FAFC;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -114,5 +114,5 @@ body {
 }
 
 .gradient-text {
-  color: #60A5FA;
+  color: #635BFF;
 }
