@@ -1,4 +1,12 @@
-import taskData from '@/services/mockData/tasks.json'
+import taskData from "@/services/mockData/tasks.json";
+import React from "react";
+
+const { ApperClient } = window.ApperSDK
+
+const apperClient = new ApperClient({
+  apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+  apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+})
 
 let tasks = [...taskData]
 
@@ -83,7 +91,7 @@ export const taskService = {
     }
   },
 
-  loadFromLocalStorage() {
+loadFromLocalStorage() {
     try {
       const saved = localStorage.getItem('taskflow-tasks')
       if (saved) {
@@ -91,6 +99,30 @@ export const taskService = {
       }
     } catch (error) {
       console.warn('Could not load tasks from localStorage:', error)
+    }
+  },
+
+  async generateDescription(title) {
+    try {
+      const result = await apperClient.functions.invoke(
+        import.meta.env.VITE_GENERATE_TASK_DESCRIPTION,
+        {
+          body: JSON.stringify({ title }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+
+      if (result.success === false) {
+        console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_GENERATE_TASK_DESCRIPTION}. The response body is: ${JSON.stringify(result)}.`)
+        return { success: false, error: result.error || 'Failed to generate description' }
+      }
+
+      return result
+    } catch (error) {
+      console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_GENERATE_TASK_DESCRIPTION}. The error is: ${error.message}`)
+      return { success: false, error: error.message }
     }
   }
 }

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
+import { toast } from 'react-toastify'
+import { taskService } from '@/services/api/taskService'
 import Input from '@/components/atoms/Input'
 import Textarea from '@/components/atoms/Textarea'
 import Select from '@/components/atoms/Select'
@@ -12,13 +14,14 @@ const TaskForm = ({
   onCancel,
   categories = []
 }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: '',
     description: '',
     priority: 'medium',
     dueDate: '',
     category: 'Work'
   })
+  const [generatingDesc, setGeneratingDesc] = useState(false)
 
   useEffect(() => {
     if (task) {
@@ -31,7 +34,28 @@ const TaskForm = ({
       })
     }
   }, [task])
+const handleGenerateDescription = async () => {
+    if (!formData.title.trim()) {
+      toast.error('Please enter a task title first')
+      return
+    }
 
+    setGeneratingDesc(true)
+    try {
+      const result = await taskService.generateDescription(formData.title)
+      
+      if (result.success) {
+        setFormData(prev => ({ ...prev, description: result.description }))
+        toast.success('Description generated successfully!')
+      } else {
+        toast.error(result.error || 'Failed to generate description')
+      }
+    } catch (error) {
+      toast.error('An error occurred while generating description')
+    } finally {
+      setGeneratingDesc(false)
+    }
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!formData.title.trim()) return
@@ -68,10 +92,33 @@ const TaskForm = ({
       </div>
 
       {/* Description */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Description
-        </label>
+<div>
+        <div className="flex items-center justify-between mb-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Description
+          </label>
+          <button
+            type="button"
+            onClick={handleGenerateDescription}
+            disabled={generatingDesc || !formData.title.trim()}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {generatingDesc ? (
+              <>
+                <svg className="animate-spin h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+                Generating...
+              </>
+            ) : (
+              <>
+                <ApperIcon name="Sparkles" size={14} />
+                Generate Description
+              </>
+            )}
+          </button>
+        </div>
         <Textarea
           value={formData.description}
           onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
