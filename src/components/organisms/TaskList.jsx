@@ -23,7 +23,7 @@ const TaskList = ({
   }
 
   return (
-    <div className="space-y-4">
+<div className="space-y-2">
       <AnimatePresence>
         {tasks.map((task, index) => (
           <motion.div

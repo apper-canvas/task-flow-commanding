@@ -103,8 +103,8 @@ const TaskCard = ({
       {/* Priority indicator bar */}
       <div className={cn("h-1 w-full", getPriorityColor(task.priority))} />
       
-      <div className="p-6">
-        <div className="flex items-start gap-4">
+<div className="p-3">
+<div className="flex items-start gap-2">
           <div className="flex-shrink-0 pt-1">
             <Checkbox
               checked={task.completed}
@@ -114,10 +114,10 @@ const TaskCard = ({
           </div>
           
           <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-4 mb-2">
+<div className="flex items-start justify-between gap-2 mb-1">
               <div className="relative">
-                <h3 className={cn(
-                  "text-lg font-display font-semibold text-gray-900 leading-tight",
+<h3 className={cn(
+                  "text-base font-display font-semibold text-gray-900 leading-tight",
                   task.completed && "line-through text-gray-500"
                 )}>
                   {task.title}
@@ -136,17 +136,18 @@ const TaskCard = ({
               </div>
               
               <div className="flex items-center gap-2 flex-shrink-0">
-                <span className={cn(
-                  "text-xs font-medium px-2 py-1 rounded-full",
+<span className={cn(
+                  "text-xs font-medium px-1.5 py-0.5 rounded-full",
                   getPriorityTextColor(task.priority),
                   "bg-gray-50"
                 )}>
                   {getPriorityLabel(task.priority)}
                 </span>
                 
-                <Button
+<Button
                   variant="ghost"
                   size="sm"
+                  className="h-6 w-6 p-0"
                   onClick={() => onDelete(task.Id)}
                   className="text-gray-400 hover:text-error p-1 min-h-auto"
                 >
@@ -156,18 +157,18 @@ const TaskCard = ({
             </div>
             
             {task.description && (
-              <p className={cn(
-                "text-sm text-gray-600 mb-3 leading-relaxed",
+<p className={cn(
+                "text-xs text-gray-600 mb-2 leading-snug",
                 task.completed && "line-through opacity-75"
               )}>
                 {task.description}
               </p>
             )}
             
-            <div className="flex items-center gap-3 flex-wrap">
+<div className="flex items-center gap-2 flex-wrap">
               {category && (
-                <span 
-                  className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium text-white"
+<span 
+                  className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium text-white"
                   style={{ backgroundColor: category.color }}
                 >
                   {category.name}
@@ -175,8 +176,8 @@ const TaskCard = ({
               )}
               
               {task.dueDate && (
-                <div className={cn(
-                  "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium",
+<div className={cn(
+                  "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium",
                   isOverdue(task.dueDate) ? "bg-error/10 text-error" :
                   isDueSoon(task.dueDate) ? "bg-warning/10 text-warning" :
                   "bg-gray-100 text-gray-600"

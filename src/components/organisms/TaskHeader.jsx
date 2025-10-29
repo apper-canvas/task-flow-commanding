@@ -8,16 +8,16 @@ const TaskHeader = ({ totalTasks, completedTasks }) => {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="text-center py-8"
+className="text-center py-4"
     >
-      <h1 className="text-4xl font-display font-bold gradient-text mb-3">
+<h1 className="text-3xl font-display font-bold gradient-text mb-2">
         Task Flow
       </h1>
-      <p className="text-gray-600 text-lg mb-6">
+<p className="text-gray-600 text-base mb-4">
         Organize your day, accomplish your goals
       </p>
       
-      {totalTasks > 0 && (
+{totalTasks > 0 && completedTasks > 0 && (
         <div className="flex items-center justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full"></div>

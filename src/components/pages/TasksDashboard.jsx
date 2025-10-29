@@ -107,7 +107,7 @@ const TasksDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+<div className="max-w-4xl mx-auto px-4 py-4">
         {/* Header */}
         <TaskHeader 
           totalTasks={totalTasks}
@@ -119,7 +119,7 @@ const TasksDashboard = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-8"
+className="mb-4"
         >
           <PriorityFilter
             selectedPriority={selectedPriority}

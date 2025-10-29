@@ -14,7 +14,7 @@ const PriorityFilter = ({
   ]
 
   return (
-    <div className="flex gap-2 flex-wrap">
+<div className="flex gap-1.5 flex-wrap">
       {priorities.map(priority => {
         const isActive = selectedPriority === priority.value
         const count = taskCounts[priority.value] || 0
@@ -26,8 +26,8 @@ const PriorityFilter = ({
             whileTap={{ scale: 0.98 }}
             onClick={() => onPriorityChange(priority.value)}
             className={cn(
-              "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[36px] flex items-center gap-2",
-              isActive 
+"px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 min-h-[32px] flex items-center gap-1.5",
+              isActive
                 ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
                 : priority.color
             )}
