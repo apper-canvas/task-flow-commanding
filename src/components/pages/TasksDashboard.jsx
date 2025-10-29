@@ -105,21 +105,20 @@ const TasksDashboard = () => {
     return <Error error={error} onRetry={refetch} />
   }
 
-  return (
+return (
     <div className="min-h-screen bg-background">
-<div className="max-w-4xl mx-auto px-4 py-4">
+      <div className="max-w-4xl mx-auto px-4 py-2">
         {/* Header */}
         <TaskHeader 
           totalTasks={totalTasks}
           completedTasks={completedTasks}
         />
-
-        {/* Priority Filters */}
+{/* Priority Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-className="mb-4"
+          className="mb-2"
         >
           <PriorityFilter
             selectedPriority={selectedPriority}

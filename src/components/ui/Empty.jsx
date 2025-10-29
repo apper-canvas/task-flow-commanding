@@ -8,11 +8,11 @@ const Empty = ({
   action,
   actionText = "Create Task"
 }) => {
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col items-center justify-center min-h-[400px] text-center p-8"
+      className="flex flex-col items-center justify-center min-h-[300px] text-center p-8"
     >
       <div className="relative mb-8">
         <div className="w-24 h-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-full flex items-center justify-center">
@@ -50,14 +50,13 @@ const Empty = ({
         />
       </div>
       
-      <h3 className="text-2xl font-display font-bold gradient-text mb-3">
+<h3 className="text-2xl font-display font-bold gradient-text mb-3">
         {title}
       </h3>
       
-      <p className="text-gray-600 mb-8 max-w-md leading-relaxed">
+      <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
         {description}
       </p>
-      
       {action && (
         <Button 
           onClick={action} 

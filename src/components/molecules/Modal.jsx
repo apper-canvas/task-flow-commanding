@@ -67,9 +67,9 @@ const Modal = ({
                 sizes[size],
                 className
               )}
-            >
+>
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-100">
+              <div className="flex items-center justify-between p-4 border-b border-gray-100">
                 <h2 className="text-xl font-display font-semibold text-gray-900">
                   {title}
                 </h2>
@@ -79,10 +79,10 @@ const Modal = ({
                 >
                   <ApperIcon name="X" size={20} />
                 </button>
-              </div>
+</div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-4">
                 {children}
               </div>
             </motion.div>

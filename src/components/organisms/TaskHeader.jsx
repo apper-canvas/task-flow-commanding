@@ -10,12 +10,6 @@ const TaskHeader = ({ totalTasks, completedTasks }) => {
       animate={{ opacity: 1, y: 0 }}
 className="text-center py-4"
     >
-<h1 className="text-3xl font-display font-bold gradient-text mb-2">
-        Task Flow
-      </h1>
-<p className="text-gray-600 text-base mb-4">
-        Organize your day, accomplish your goals
-      </p>
       
 {totalTasks > 0 && completedTasks > 0 && (
         <div className="flex items-center justify-center gap-6 text-sm">
